@@ -19,6 +19,10 @@ def hello_world():
         input_features = [fever,pain,age, runnynose, breath]
         result = lg.predict([input_features])
         # return 'Hello, World!' + str(result)
+        if result == [0]:
+            result = "Positive"
+        else:
+            result = "Negative"
         return render_template('show.html', inf=result)
     return render_template('index.html')
 
